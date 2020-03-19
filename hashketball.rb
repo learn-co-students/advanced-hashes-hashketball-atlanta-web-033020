@@ -1,3 +1,5 @@
+require "pry"
+
 def game_hash
   game_data = {
     :home => {
@@ -277,5 +279,17 @@ def long_name_steals_a_ton?
     return true
   else
     return false
+  end
+end
+
+def player_by_number(number)
+  hash = game_hash
+  
+  hash.each do |team_side, team_side_values|
+    team_side_values[:players].each do |player_data|
+      if player_data[:number] == number
+        return player_data[:player_name]
+      end
+    end
   end
 end
